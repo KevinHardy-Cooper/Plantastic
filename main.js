@@ -6,6 +6,7 @@
   Inspired by https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm
 */
 
+// Importing components
 import React from 'react';
 import ReactDOM from 'react-dom';
 

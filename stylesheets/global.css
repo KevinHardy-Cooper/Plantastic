@@ -1,0 +1,62 @@
+/*
+  February 3, 2018
+  Created by Kevin Hardy-Cooper
+  Abstract:
+  This file contains the stylings for the application
+*/
+
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	background-color: #ADDFAD;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+li {
+	font-size: 30pt;
+}
+
+li a {
+    display: block;
+    color: green;
+    text-align: center; 
+    padding: 5px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: green;
+    color: #f2f2f2;
+}
+
+.align-middle {
+	text-align: center;
+}
+
+.descriptions {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.descriptions td, .descriptions th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.descriptions tr:nth-child(even){background-color: #f2f2f2;}
+
+.descriptions tr:nth-child(odd){background-color: #ffffff;}
+
+.descriptions tr:hover {background-color: #ddd;}
+
+.descriptions th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: green;
+    color: white;
+}

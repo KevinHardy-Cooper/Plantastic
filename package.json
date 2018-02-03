@@ -24,9 +24,10 @@
     "body-parser": "*",
     "express": "*",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
+    "react": "*",
     "react-dom": "^16.0.0",
     "react-file-base64": "^1.0.3",
+    "react-spinners": "^0.2.5",
     "request": "^2.83.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
