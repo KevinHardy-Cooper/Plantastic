@@ -6,6 +6,7 @@
 */
 
 // Importing modules
+var mysql = require('mysql');
 var express = require('express');
 var bodyParser = require('body-parser');
 var SensitiveInfo = require('./SensitiveInfo');
@@ -40,6 +41,15 @@ app.use(function (req, res, next) {
 // Parses the text as JSON and exposes the resulting object on req.body
 app.use(bodyParser.json());
 
+
+// Set up connection to database.
+var con = mysql.createConnection({
+  host: sensitiveInfo.passedInHost,
+  user: sensitiveInfo.passInUser,
+  password: sensitiveInfo.passedInPassword,
+  database: sensitiveInfo.passedInDatabase
+});
+
 // Listen to POST requests to /labels.
 app.post('/labels', function(req, res) {
 
@@ -70,6 +80,20 @@ app.post('/labels', function(req, res) {
       }
     }
 )});
+
+// Listen to GET requests to /invoices.
+app.get('/suggestions/:plantType', function(req, res) {
+
+  var queryString = "SELECT * FROM PlantCare WHERE `plantType` = '" + req.params.plantType + "';";
+
+  // Get all customer invoices
+  var query = con.query(queryString, function (err, result) {
+    if (err) throw err;
+    
+    // Return the json of the resulting records of the query
+    res.json(result);
+  });
+});
 
 // Set up the express routing to occur on port 3000
 app.listen(3000, function() {

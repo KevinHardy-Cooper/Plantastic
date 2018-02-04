@@ -39,6 +39,16 @@ export default class Body extends React.Component {
 	// Input: uploaded file
 	getImage(file){
 
+
+		// The node backend cannot handle large base64 encoded pictures being posted in the request body, so checking for a valid picture size before doing anything else
+		var pic_size = parseInt(file[0].size.substring(0, file[0].size.length-3));
+
+		if (pic_size > 75) {
+			alert("Picture size is too large!");
+			return;
+		}
+
+
 		// Setting local state of the image source when base64 encoded
 	    this.setState({image_src: file[0].base64});
 

@@ -8,6 +8,7 @@
 
 // Importing modules
 import React from 'react';
+import HowTo from './HowTo.jsx';
 
 export default class Table extends React.Component {
 
@@ -19,30 +20,49 @@ export default class Table extends React.Component {
 
 	render() {
 
-		return (
-			<table className = "descriptions">
-    			<thead>
-    				<tr>
-    					<th>Description</th>
-    					<th>Score</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-	            	{/* For each label in labels, map each to a table row given an index key, and output the label info in table cells */}
-	          		{
-	              		this.labels.map(
-	              			function(label, index) {
-	                			return (
-	                				<tr key = {index}>
-	                          			<td>{ label.description }</td>
-	                          			<td>{ label.score }</td>
-	                       			</tr>
-	                       		);
-	              			}
-	      				)
-	          		}
-	          	</tbody>
-            </table>
-		)
+		// Check if any of the labels contain the word "plant", if not, then the picture is not of a plant and don't display table
+		var plantCount = 0;
+		for (var label in this.labels) {
+			if (this.labels[label].description === "plant") {
+				plantCount++;
+			}
+		}
+
+		if (plantCount < 1) {
+			return (
+				<div>
+					<h1>Not a plant!</h1>
+				</div>
+			)
+		} else {
+			return (
+				<div>
+					<table className = "descriptions">
+		    			<thead>
+		    				<tr>
+		    					<th>Description</th>
+		    					<th>Score</th>
+		    				</tr>
+		    			</thead>
+		    			<tbody>
+			            	{/* For each label in labels, map each to a table row given an index key, and output the label info in table cells */}
+			          		{
+			              		this.labels.map(
+			              			function(label, index) {
+			                			return (
+			                				<tr key = {index}>
+			                          			<td>{ label.description }</td>
+			                          			<td>{ label.score }</td>
+			                       			</tr>
+			                       		);
+			              			}
+			      				)
+			          		}
+			          	</tbody>
+		            </table>
+		            <HowTo labels = {this.labels}/>
+		        </div>
+			)
+		}	
 	}
 }
