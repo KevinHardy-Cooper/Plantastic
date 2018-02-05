@@ -35,6 +35,11 @@ li a:hover:not(.active) {
 
 .align-middle {
 	text-align: center;
+    padding-top: 50%;
+}
+
+input[type = file] {
+    width: 170px;
 }
 
 .descriptions {

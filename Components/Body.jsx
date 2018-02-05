@@ -113,9 +113,13 @@ export default class Body extends React.Component {
 		  	
 		  	// Provide input button for file upload, and loading icon
 		    return (
-	    		<div>
-	    			<FileBase64 multiple={ true } onDone={ this.getImage.bind(this) } />
-	    			<div className = 'sweet-loading align-middle'>
+	    		<div className = "align-middle">
+	    				<label><h2>
+	    					Upload a picture of a plant!
+	    					<br/>
+	    					<FileBase64 multiple={ true } onDone={ this.getImage.bind(this) } />
+	    				</h2></label>
+	    			<div className = 'sweet-loading'>
 				        {loader}
       				</div>
 	    		</div>

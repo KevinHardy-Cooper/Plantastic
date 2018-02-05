@@ -27,8 +27,21 @@ export default class HowTo extends React.Component {
 	*/
 	componentDidMount() {
 
-		// GET suggestion, returning the results in JSON format, then setting the state property invoices to these results
-		fetch('http://localhost:3000/suggestions/cactus')
+		// Check if any of the labels contain specific plant types
+		for (var label in this.labels) {
+			var descr = this.labels[label].description;
+
+			if (descr === "cactus" || descr === "aloe" || descr === "bamboo" || descr === "orchid") {
+				this.getSuggestion(descr);
+				return;
+			}
+		}
+	}
+
+	getSuggestion(plantType) {
+
+		// GET suggestion, returning the results in JSON format, then setting the state property suggestions to these results
+		fetch('http://localhost:3000/suggestions/' + plantType)
 			.then(results => {
 				return results.json();
 			})
@@ -48,9 +61,12 @@ export default class HowTo extends React.Component {
 		} else {
 			return (
 				<div>
-					<h2> Suggestion available </h2>
-					<h3> How to take care of a {this.state.suggestions[0].plantType} </h3>
-					<p> {this.state.suggestions[0].suggestion} </p>
+					<h2> Suggestions available </h2>
+					<h3> How to take care of a(n) {this.state.suggestions[0].plantType} </h3>
+					<h4> Planting details </h4>
+					<p> {this.state.suggestions[0].plantingDetails} </p>
+					<h4> General Care </h4>
+					<p> {this.state.suggestions[0].care} </p>
 				</div>
 			)
 		}
