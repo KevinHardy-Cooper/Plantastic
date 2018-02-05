@@ -19,15 +19,17 @@ import Table from './Table.jsx';
 
 export default class Body extends React.Component {
 
-	// The constructor is called before a component is mounted on the DOM
+	// The constructor is called before a component is mounted on the DOM.  No props are passed in from App
 	constructor() {
+
+		// Referring to the parent component
 		super();
 
 		// Creating local state variables which will be used throughout the component lifecycle
     	this.state = {
-      		labels: [],
-      		image_src: "",
-      		loading: false
+      		labels: [],		// this will hold the labels that describe the uploaded image
+      		image_src: "",	// this will hold the base64 encoded string
+      		loading: false 	// this will represent if the nice loader is visible or not
     	};
 
     	// This binding is necessary to make 'this' work in the callback
@@ -35,7 +37,7 @@ export default class Body extends React.Component {
     	this.getLabels = this.getLabels.bind(this);
   	}
 
-	// Function that is called when image is uploaded
+	// Function that is called when image is uploaded, sets up base64 string for post body
 	// Input: uploaded file
 	getImage(file){
 
@@ -43,11 +45,11 @@ export default class Body extends React.Component {
 		// The node backend cannot handle large base64 encoded pictures being posted in the request body, so checking for a valid picture size before doing anything else
 		var pic_size = parseInt(file[0].size.substring(0, file[0].size.length-3));
 
+		// 75 kb seems to be the upper limit to be encoded and sent to backend via node
 		if (pic_size > 75) {
 			alert("Picture size is too large!");
 			return;
 		}
-
 
 		// Setting local state of the image source when base64 encoded
 	    this.setState({image_src: file[0].base64});
@@ -65,7 +67,7 @@ export default class Body extends React.Component {
 	getLabels(base64_string) {
 
 		// Start Loader
-		this.setState({loading: true});
+		this.setState({loading: true}); //it's beautiful
 
 		// Fetch provides an easy, logical way to fetch resources asynchronously across the network
 		// Posts base64 encoded image to REST API
@@ -80,7 +82,8 @@ export default class Body extends React.Component {
 					"image": base64_string
 				})
 			})
-		// On return of results, return the response as a json which contains the headers of the response but not the body
+
+		// On return of results aka we are handling asynchornous function serially, return the response as a json which contains the headers of the response
 		.then((response) => { 
 			return response.json();
 		})
@@ -88,7 +91,7 @@ export default class Body extends React.Component {
 		// Now we can get the body of the response
 		.then((data) => { 
 
-			// Set sate variable labels with results from API call
+			// Set state variable labels with results from API call
 			this.setState({labels: data.body.responses[0].labelAnnotations});  
 
 			// Stop Loader

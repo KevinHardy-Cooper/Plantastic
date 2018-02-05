@@ -16,7 +16,7 @@ export default class App extends React.Component {
    render() {
       return (
          <div>
-            {/* This is where the title for the page will reside */}
+            {/* This is where the 'navbar' for the page will reside */}
             <ul>
               <li><a href = "/">Plantastic 🌿</a></li>
             </ul>

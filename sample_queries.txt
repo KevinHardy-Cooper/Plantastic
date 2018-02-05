@@ -1,0 +1,25 @@
+/*
+	
+
+*/
+
+// Create a database
+CREATE DATABASE Plantastic;
+
+// Create a table
+CREATE TABLE PlantCare (plantType VARCHAR(100), plantingDetails TEXT, care TEXT);
+
+// Insert record for aloe
+INSERT INTO PlantCare (plantType, plantingDetails, care) VALUES ('aloe', 'Plant aloe vera in wide containers with a well-draining potting mix, such as those made for cacti and succulents. Aloe vera plants are hardy, but a lack of proper drainage can cause rot and wilting, which is easily the most common cause of a death for the plant.\nPlace in bright, indirect light or artificial light.\nAloe vera do best in temperatures between 55 and 80°F (13–27°C)', 'Water aloe vera plants deeply, but in order to discourage rot, allow the soil to dry at least 1 to 2 inches deep between waterings.\nWater about every 3 weeks and even more sparingly during the winter. Use your finger to test dryness before watering. If the potting mix stays wet, the plants\’ roots can begin to rot.\nFertilize sparingly (no more than once a month), and only in the spring and summer with a balanced houseplant formula mixed at ½ strength.\nRepot when root bound, using a well-drained potting mix designed for cacti and succulents.');
+
+// Insert record for cactus
+INSERT INTO PlantCare (plantType, plantingDetails, care) VALUES ('cactus', 'Develop a potting mix consisting of 60 percent pumice (or perlite or vermiculite), 20 percent coir (or peat), and 20 percent topsoil.\nPlant your cactus in an unglazed clay pot if possible because it will allow water to more easily evaporate. However, glazed clay, plastic or ceramic pots may work as well for you if you are careful not to over-water as this could cause standing water in the pot.\nPlace coarse gravel or lava rocks in the bottom of your pot before adding the potting soil. Be sure the pot has good drainage holes.\nPlace the plant carefully into enough soil so that it can support itself without falling over.', 'Maintain very bright light for your cactus whether indoors and out. Grow lights may help indoor cactus if your house is dark.\nWater when the soil is dry.\nMaintain consistent temperatures. A cactus will go dormant if it is too hot or cold.');
+
+// Insert record for bamboo
+INSERT INTO PlantCare VALUES ('bamboo', 'Find a wide, squat pot. Choose a container with twice the diameter of the root ball, or with at least 2 inches (5 cm) of space between the root ball and the sides. Good drainage is key to the survival of most bamboo species, so make sure there are sizeable holes in the base of the pot.\nFill with well-draining soil. Bamboo needs a soil with light to moderate density: fast-draining, but able to hold moisture. You can use a standard potting mix, or make your own from one third loam, one third perlite (or washed sand), and one third peat moss (or well-rotted compost).\nMost bamboo can tolerate a wide range of well-draining soils, so the exact composition will not make or break your plants.Plant your bamboo at a shallow depth. Keep the stem and the top of the root ball above the level of the soil to prevent rot. Press the soil down to get rid of air bubbles, and water in the plant with a good soak.', 'Water your bamboo carefully. This is the most difficult part of growing bamboo indoors, since bamboo is both thirsty and vulnerable to overwatering. To start out, water until a little water runs out the base. Let the top 2 or 3 inches (5–7.5 cm) of soil dry out before each watering session. If the soil stays moist for more than a day or two, reduce the amount of water. Keep it humid. Most bamboo plants prefer humid air, especially in hot weather. Prune regularly. Most bamboo is very tolerant of pruning, so do not hesitate to shape it once it is established and healthy.');                         ';
+
+// Insert record for orchid
+INSERT INTO PlantCare VALUES ('orchid', 'Most orchids require moist, well-draining conditions. Orchids require shallow planting. Place orchids in an east to south-facing window or room. These plants prefer bright, indirect light. Insufficient light results in poor flowering. However, too much light can lead to leaf scorch. Temperature is also important for indoor orchid care. While orchids tolerate cooler or warmer temperatures throughout their normal growing season, they need to be about 15 degrees cooler at night than during the day in order to bloom sufficiently.', 'Orchids need ample water but should be allowed to dry out some between waterings. One way to check for watering is by poking your finger about an inch into the growing media. If it’s dry, give it some water; otherwise, let it be. Indoor orchid plants also need adequate humidity, about fifty to seventy percent. There are various ways to increase the humidity in your home. Place a water-filled saucer or tray of pebbles beneath plants, mist plants daily, or use a humidifier. Fertilize orchids weekly or bi-weekly while they are producing new growth and decrease to monthly or bi-monthly intervals once they mature. Discontinue altogether once the plants go dormant.');
+
+
+

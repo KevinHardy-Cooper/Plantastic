@@ -28,7 +28,8 @@ export default class Table extends React.Component {
 			}
 		}
 
-		if (plantCount < 1) {
+		// If there are no labels containing the word plant, then it can be inferred that the image is not of a plant
+		if (plantCount == 0) {
 			return (
 				<div>
 					<h1>Not a plant!</h1>
@@ -41,7 +42,7 @@ export default class Table extends React.Component {
 		    			<thead>
 		    				<tr>
 		    					<th>Description</th>
-		    					<th>Score</th>
+		    					<th>Accuracy Score</th>
 		    				</tr>
 		    			</thead>
 		    			<tbody>
@@ -60,8 +61,8 @@ export default class Table extends React.Component {
 			          		}
 			          	</tbody>
 		            </table>
-		            <HowTo labels = {this.labels}/>
-		        </div>
+		        	<HowTo labels = {this.labels}/>
+				</div>
 			)
 		}	
 	}

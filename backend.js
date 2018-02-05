@@ -6,33 +6,29 @@
 */
 
 // Importing modules
-var mysql = require('mysql');
-var express = require('express');
-var bodyParser = require('body-parser');
-var SensitiveInfo = require('./SensitiveInfo');
-var request = require('request');
+var mysql = require('mysql'); // for integration with mysql db
+var express = require('express'); // for rest api
+var bodyParser = require('body-parser'); // for parsing requests and responses
+var request = require('request'); // for sending and receiving api calls
+var SensitiveInfo = require('./SensitiveInfo'); // contains top secret information
 
 // Creating an Express.js app
 var app = express();
 
-// Creating an instance of SensitiveInfo
+// Creating an instance of SensitiveInfo #topsecret
 const sensitiveInfo = new SensitiveInfo();
 
-// Adding headers that allow for Cross-Origin Resource Sharing between port 8080 and 3000
+// Adding headers that allow for Cross-Origin Resource Sharing between port 8080 and 3000, for local hosting only
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
 
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
     next();
@@ -53,17 +49,20 @@ var con = mysql.createConnection({
 // Listen to POST requests to /labels.
 app.post('/labels', function(req, res) {
 
-  // The url that we are going to hit
+  // The Google Cloud Vision API url that we are going to hit
   var api_url = 'https://vision.googleapis.com/v1/images:annotate?key=';
 
-  // Creating a pos request using the request module
+  // The post request body contains the base64 encoded image that we need
+  var base64_str = req.body.image;
+
+  // Creating a post request using the request module
   request.post(
     api_url + sensitiveInfo.api_key, // appending the api key to the url
     { json: // the body of the post that must be sent to the Google Cloud Vision API
       {
         "requests": [{
           "image": {
-            "content": req.body.image
+            "content": base64_str
           },
           "features": [{
             "type": "LABEL_DETECTION",
@@ -76,14 +75,17 @@ app.post('/labels', function(req, res) {
     // A callback once the results have been retrieved
     function (error, response) {
       if (!error && response.statusCode == 200) {
-        res.send(response);
+
+        // Sending API response back to front end
+        res.send(response); 
       }
     }
 )});
 
-// Listen to GET requests to /invoices.
+// Listen to GET requests to /invoices/:plantType.
 app.get('/suggestions/:plantType', function(req, res) {
 
+  // The SQL query
   var queryString = "SELECT * FROM PlantCare WHERE `plantType` = '" + req.params.plantType + "';";
 
   // Get all customer invoices
@@ -97,5 +99,5 @@ app.get('/suggestions/:plantType', function(req, res) {
 
 // Set up the express routing to occur on port 3000
 app.listen(3000, function() {
-  console.log('Example app listening on port 3000!');
+  console.log('Plantastic 🌿 listening on port 3000!');
 });
