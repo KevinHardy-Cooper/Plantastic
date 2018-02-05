@@ -31,7 +31,7 @@ A suggestion engine built with React.js, Node.js, MySQL, and utilizes the Google
 1. Once you have the MySQL instance going, the backend up and cruisin', and the frontend rockin' and rollin', hit [localhost:8080] (http://localhost:8080/), and upload an image of a plant (there are example images in /assets) for the suggestion engine to start givin' 'er!
 
 ## Contributions
-Kevin Hardy-Cooper, February 2 - 7 2017
+Kevin Hardy-Cooper, February 2 - 7 2018
 
 ### Special Thanks
 My dad.  
