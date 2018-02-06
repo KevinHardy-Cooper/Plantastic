@@ -24,11 +24,11 @@ A suggestion engine built with React.js, Node.js, MySQL, and utilizes the Google
 3. _Terminal_ Use command line to navigate to the /Plantastic/src folder.
 4. _Terminal_ Use the following command: `node backend.js` to get the backend up and going
 5. _Terminal_ Run the following command: `$ npm start` to start the frontend
-6. _Your favourite web browser_ Open [localhost:8080] (http://localhost:8080/)
+6. _Your favourite web browser_ Open [localhost:8080](http://localhost:8080/)
 7. Your MySQL database that we will be querying is currently empty.  There are example queries in sample_queries.txt
 
 ## Live Demo?!
-1. Once you have the MySQL instance going, the backend up and cruisin', and the frontend rockin' and rollin', hit [localhost:8080] (http://localhost:8080/), and upload an image of a plant (there are example images in /assets) for the suggestion engine to start givin' 'er!
+1. Once you have the MySQL instance going, the backend up and cruisin', and the frontend rockin' and rollin', hit [localhost:8080](http://localhost:8080/), and upload an image of a plant (there are example images in /assets) for the suggestion engine to start givin' 'er!
 
 ## Contributions
 Kevin Hardy-Cooper, February 2 - 7 2018
