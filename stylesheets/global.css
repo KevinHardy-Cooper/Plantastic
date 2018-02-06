@@ -33,6 +33,11 @@ li a:hover:not(.active) {
     color: #f2f2f2;
 }
 
+.align-center {
+    text-align: center;
+    padding-top: 10px;
+}
+
 .align-middle {
 	text-align: center;
     padding-top: 40%;

@@ -22,10 +22,10 @@ export default class Image extends React.Component {
 	render() {
 
 		return (
-			<div>
+			<div className = "align-center">
 				{/* The JSX parser needs to interpret this image_src value and set it to the img src */}
 
-				<img src = {this.image_src} alt = "Uploaded Image" width = "100%"/>
+				<img src = {this.image_src} alt = "Uploaded Image" width = "300px"/>
 			</div>
 		)
 	}
