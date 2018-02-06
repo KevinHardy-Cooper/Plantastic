@@ -7,11 +7,11 @@ Summer Internship Project - Kevin Hardy-Cooper
 A suggestion engine built with React.js, Node.js, MySQL, and utilizes the Google Cloud Vision API to upload and analyze an image of a plant from the user, and display relevant advice on how to take care of that plant.
 
 ## Prerequisites
-1. You will need a package manager, such as [npm]. (https://www.npmjs.com/)
-2. You will need [Node.js] to execute the backend. (https://nodejs.org/en/)
-3. You will need [React.js] to execute the frontend. (https://reactjs.org/)
-4. You will need a [MySQL] database instance on your local machine. (https://www.mysql.com/)
-5. You will need to be familiar with Google Cloud Vision API calls. (https://cloud.google.com/vision/)
+1. You will need a package manager, such as [npm](https://www.npmjs.com/).
+2. You will need [Node.js](https://nodejs.org/en/) to execute the backend.
+3. You will need [React.js](https://reactjs.org/) to execute the frontend.
+4. You will need a [MySQL](https://www.mysql.com/) database instance on your local machine. 
+5. You will need to be familiar with [Google Cloud Vision](https://cloud.google.com/vision/) API calls. 
 
 ##### Helpful Tutorials
 1. Getting started with Node.js, and integrating it with MySQL. https://www.w3schools.com/nodejs/
