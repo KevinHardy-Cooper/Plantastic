@@ -2,8 +2,6 @@
 Oh my stars, this project is plantastic!
 
 ## Overview
-Summer Internship Project - Kevin Hardy-Cooper
-
 A suggestion engine built with React.js, Node.js, MySQL, and utilizes the Google Cloud Vision API to upload and analyze an image of a plant from the user, and display relevant advice on how to take care of that plant.
 
 ## Prerequisites
